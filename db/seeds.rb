@@ -203,7 +203,3 @@ end
 produits.each do |name, category|
   ProductName.create!(name: name, category_id: category)
 end
-
-ProductName.all.each do |p|
-  Product.create!(name: p.name, product_name_id: p.id, category_id: p.category_id)
-end
