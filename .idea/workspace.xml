@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="573b4714-c0a8-4e44-9108-79fcad99de57" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/list/ListActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/list/ListActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/list/ListTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/list/ListTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/categories/categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/categories/categories.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/lists.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/lists.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/lists.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/lists.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/config/configuration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/config/api.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -76,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="148" column="12" lean-forward="true" selection-start-line="148" selection-start-column="12" selection-end-line="148" selection-end-column="12" />
+            <state relative-caret-position="230">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -88,11 +84,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.scss">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/javascript/packs/FoodList/config/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="94" selection-start-line="94" selection-end-line="94" selection-end-column="35" />
+            <state relative-caret-position="138">
+              <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/javascript/packs/FoodList/config/configuration.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="52" lean-forward="true" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -114,18 +119,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="483">
               <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/javascript/packs/FoodList/actions/category/CategoryActions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="68" selection-start-line="68" selection-end-line="96" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -173,8 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20200425164455_add_status_to_products.rb" />
-        <option value="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/product/index.js" />
         <option value="$PROJECT_DIR$/app/javascript/packs/FoodList/reducers/products/productReducer.js" />
         <option value="$PROJECT_DIR$/app/models/category.rb" />
         <option value="$PROJECT_DIR$/app/models/product.rb" />
@@ -224,6 +215,8 @@
         <option value="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/lists.scss" />
         <option value="$PROJECT_DIR$/app/javascript/packs/FoodList/components/categories/categories.jsx" />
         <option value="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.jsx" />
+        <option value="$PROJECT_DIR$/app/javascript/packs/FoodList/config/configuration.js" />
+        <option value="$PROJECT_DIR$/app/javascript/packs/FoodList/config/api.js" />
       </list>
     </option>
   </component>
@@ -361,6 +354,15 @@
               <item name="FoodList" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="lists" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="food-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="food-list" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="javascript" type="462c0819:PsiDirectoryNode" />
+              <item name="packs" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodList" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="food-list" type="b2602c69:ProjectViewProjectNode" />
@@ -638,12 +640,12 @@
       <option name="presentableId" value="Default" />
       <updated>1587759296181</updated>
       <workItem from="1587759297461" duration="4357000" />
-      <workItem from="1587802198744" duration="57142000" />
+      <workItem from="1587802198744" duration="57560000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61499000" />
+    <option name="totallyTimeSpent" value="61917000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-60" width="1920" height="1057" extended-state="6" />
@@ -675,20 +677,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/product.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20200425135414_create_categories.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1069,11 +1057,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="148" column="12" lean-forward="true" selection-start-line="148" selection-start-column="12" selection-end-line="148" selection-end-column="12" />
+        <state relative-caret-position="230">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/packs/FoodList/config/configuration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="52" lean-forward="true" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/packs/FoodList/config/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
