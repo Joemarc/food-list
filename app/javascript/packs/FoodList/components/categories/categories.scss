@@ -1,0 +1,111 @@
+.wrap-content {
+  max-width: 37.438em;
+  padding: 40px 15px;
+  margin: auto;
+  position: relative;
+}
+
+.category-container {
+  max-width: 37.438em;
+  margin-bottom: 15px;
+}
+
+.category-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  & > *:not(:last-child) {
+    margin-right: 15px;
+    width: 100%;
+  }
+}
+
+.category-title-display {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #646463;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  background-color: #992E2E;
+  bottom: 0;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: fixed;
+  right: 70px;
+}
+
+.red-btn {
+  background-color: #992E2E;
+  bottom: 0;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.missing-btn {
+  background-color: #64B3AE;
+  bottom: 0;
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.modal-opened {
+  background-color: white;
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  z-index: 2;
+  padding: 30px 15px;
+}
+
+.modal-closed {
+  display: none;
+}
+
+
+.modal-opened-cat {
+  background-color: white;
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  z-index: 2;
+  padding: 30px 15px;
+}
+
+.modal-closed-cat {
+  display: none;
+}
+
+.field-input {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.buttons-missing {
+  display: flex;
+  justify-content: space-between;
+  & > * {
+    width: 48%;
+  }
+}

@@ -1,30 +1,60 @@
-                   Prefix Verb   URI Pattern                                                                              Controller#Action
-         new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
-             user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
-     destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
-        new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
-       edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
-            user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
-                          PUT    /users/password(.:format)                                                                devise/passwords#update
-                          POST   /users/password(.:format)                                                                devise/passwords#create
- cancel_user_registration GET    /users/cancel(.:format)                                                                  devise/registrations#cancel
-    new_user_registration GET    /users/sign_up(.:format)                                                                 devise/registrations#new
-   edit_user_registration GET    /users/edit(.:format)                                                                    devise/registrations#edit
-        user_registration PATCH  /users(.:format)                                                                         devise/registrations#update
-                          PUT    /users(.:format)                                                                         devise/registrations#update
-                          DELETE /users(.:format)                                                                         devise/registrations#destroy
-                          POST   /users(.:format)                                                                         devise/registrations#create
-                     root GET    /                                                                                        pages#home
-                    lists GET    /lists(.:format)                                                                         lists#index
-                          POST   /lists(.:format)                                                                         lists#create
-                 new_list GET    /lists/new(.:format)                                                                     lists#new
-                edit_list GET    /lists/:id/edit(.:format)                                                                lists#edit
-                     list GET    /lists/:id(.:format)                                                                     lists#show
-                          PATCH  /lists/:id(.:format)                                                                     lists#update
-                          PUT    /lists/:id(.:format)                                                                     lists#update
-                          DELETE /lists/:id(.:format)                                                                     lists#destroy
-       rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
-rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
-       rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
-update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
-     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
+                              Prefix Verb   URI Pattern                                                                              Controller#Action
+                    new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
+                        user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
+                destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
+                   new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
+                  edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
+                       user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
+                                     PUT    /users/password(.:format)                                                                devise/passwords#update
+                                     POST   /users/password(.:format)                                                                devise/passwords#create
+            cancel_user_registration GET    /users/cancel(.:format)                                                                  devise/registrations#cancel
+               new_user_registration GET    /users/sign_up(.:format)                                                                 devise/registrations#new
+              edit_user_registration GET    /users/edit(.:format)                                                                    devise/registrations#edit
+                   user_registration PATCH  /users(.:format)                                                                         devise/registrations#update
+                                     PUT    /users(.:format)                                                                         devise/registrations#update
+                                     DELETE /users(.:format)                                                                         devise/registrations#destroy
+                                     POST   /users(.:format)                                                                         devise/registrations#create
+                                root GET    /                                                                                        pages#home
+                products_api_v1_list GET    /api/v1/lists/:id/products(.:format)                                                     api/v1/lists#products {:format=>:json}
+                        api_v1_lists GET    /api/v1/lists(.:format)                                                                  api/v1/lists#index {:format=>:json}
+                                     POST   /api/v1/lists(.:format)                                                                  api/v1/lists#create {:format=>:json}
+                     new_api_v1_list GET    /api/v1/lists/new(.:format)                                                              api/v1/lists#new {:format=>:json}
+                    edit_api_v1_list GET    /api/v1/lists/:id/edit(.:format)                                                         api/v1/lists#edit {:format=>:json}
+                         api_v1_list GET    /api/v1/lists/:id(.:format)                                                              api/v1/lists#show {:format=>:json}
+                                     PATCH  /api/v1/lists/:id(.:format)                                                              api/v1/lists#update {:format=>:json}
+                                     PUT    /api/v1/lists/:id(.:format)                                                              api/v1/lists#update {:format=>:json}
+                                     DELETE /api/v1/lists/:id(.:format)                                                              api/v1/lists#destroy {:format=>:json}
+         in_products_api_v1_products GET    /api/v1/products/in_products(.:format)                                                   api/v1/products#in_products {:format=>:json}
+        out_products_api_v1_products GET    /api/v1/products/out_products(.:format)                                                  api/v1/products#out_products {:format=>:json}
+products_not_in_list_api_v1_products GET    /api/v1/products/products_not_in_list(.:format)                                          api/v1/products#products_not_in_list {:format=>:json}
+     create_products_api_v1_products POST   /api/v1/products/create_products(.:format)                                               api/v1/products#create_products {:format=>:json}
+                     api_v1_products GET    /api/v1/products(.:format)                                                               api/v1/products#index {:format=>:json}
+                                     POST   /api/v1/products(.:format)                                                               api/v1/products#create {:format=>:json}
+                  new_api_v1_product GET    /api/v1/products/new(.:format)                                                           api/v1/products#new {:format=>:json}
+                 edit_api_v1_product GET    /api/v1/products/:id/edit(.:format)                                                      api/v1/products#edit {:format=>:json}
+                      api_v1_product GET    /api/v1/products/:id(.:format)                                                           api/v1/products#show {:format=>:json}
+                                     PATCH  /api/v1/products/:id(.:format)                                                           api/v1/products#update {:format=>:json}
+                                     PUT    /api/v1/products/:id(.:format)                                                           api/v1/products#update {:format=>:json}
+                                     DELETE /api/v1/products/:id(.:format)                                                           api/v1/products#destroy {:format=>:json}
+                   api_v1_categories GET    /api/v1/categories(.:format)                                                             api/v1/categories#index {:format=>:json}
+                                     POST   /api/v1/categories(.:format)                                                             api/v1/categories#create {:format=>:json}
+                 new_api_v1_category GET    /api/v1/categories/new(.:format)                                                         api/v1/categories#new {:format=>:json}
+                edit_api_v1_category GET    /api/v1/categories/:id/edit(.:format)                                                    api/v1/categories#edit {:format=>:json}
+                     api_v1_category GET    /api/v1/categories/:id(.:format)                                                         api/v1/categories#show {:format=>:json}
+                                     PATCH  /api/v1/categories/:id(.:format)                                                         api/v1/categories#update {:format=>:json}
+                                     PUT    /api/v1/categories/:id(.:format)                                                         api/v1/categories#update {:format=>:json}
+                                     DELETE /api/v1/categories/:id(.:format)                                                         api/v1/categories#destroy {:format=>:json}
+                api_v1_product_names GET    /api/v1/product_names(.:format)                                                          api/v1/product_names#index {:format=>:json}
+                                     POST   /api/v1/product_names(.:format)                                                          api/v1/product_names#create {:format=>:json}
+             new_api_v1_product_name GET    /api/v1/product_names/new(.:format)                                                      api/v1/product_names#new {:format=>:json}
+            edit_api_v1_product_name GET    /api/v1/product_names/:id/edit(.:format)                                                 api/v1/product_names#edit {:format=>:json}
+                 api_v1_product_name GET    /api/v1/product_names/:id(.:format)                                                      api/v1/product_names#show {:format=>:json}
+                                     PATCH  /api/v1/product_names/:id(.:format)                                                      api/v1/product_names#update {:format=>:json}
+                                     PUT    /api/v1/product_names/:id(.:format)                                                      api/v1/product_names#update {:format=>:json}
+                                     DELETE /api/v1/product_names/:id(.:format)                                                      api/v1/product_names#destroy {:format=>:json}
+                                            /*path(.:format)                                                                         pages#home
+                  rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+           rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+                  rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+           update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+                rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create

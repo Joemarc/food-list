@@ -1,0 +1,23 @@
+.list-form-element {
+  display: block;
+  & > * {
+    width: 100%;
+  }
+  margin: 10px 0;
+}
+
+.field-style {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+
+.btn-edit {
+  background-color: transparent;
+  border: none;
+}
+
+.button-edit-container {
+  display: flex;
+  justify-content: space-between;
+}

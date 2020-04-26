@@ -1,3 +1,6 @@
 class Product < ApplicationRecord
-  belongs_to :list
+  has_many :lists
+  has_one :category
+
+  enum status: { in: 0, out: 1 }
 end

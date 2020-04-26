@@ -8,6 +8,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.4.2'
 gem 'redis'
+gem 'active_model_serializers', '~> 0.10.5'
+gem 'rack-cors', :require => 'rack/cors'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
@@ -28,3 +30,5 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+gem "font-awesome-rails", "~> 4.7"
