@@ -18,9 +18,12 @@ class Lists extends Component {
   }
 
   onSubmit = (values) => {
-    const { createList: createListAction } = this.props;
+    const { createList: createListAction, getLists: getListsAction } = this.props;
+    const { showModalLists } = this.state;
 
     createListAction({list: {title: values.title, author: values.author, description: values.description}})
+      .then(() => getListsAction()
+        .then(this.setState({showModalLists: !showModalLists})))
   };
 
   render() {
