@@ -2,19 +2,30 @@ import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
-import {getLists} from '../../actions';
+import {getLists, createList} from '../../actions';
 
 import './lists.scss'
+import {Field, Form} from "react-final-form";
 
 class Lists extends Component {
+  state = {
+    showModalLists: false
+  };
+
   componentDidMount() {
     const { getLists: getListsAction } = this.props;
     getListsAction();
   }
 
+  onSubmit = (values) => {
+    const { createList: createListAction } = this.props;
+
+    createListAction({list: {title: values.title, author: values.author, description: values.description}})
+  };
+
   render() {
     const { lists, isLoading } = this.props;
+    const { showModalLists } = this.state;
 
     const renderLists = () => {
       let listsContent;
@@ -27,10 +38,10 @@ class Lists extends Component {
             <p>{list.description}</p>
             <div className="lists-card--buttons">
               <button className="button-lists" type="button">
-                <a href={`list/${list.id}`}>Voir </a>
+                <a className="red" href={`list/${list.id}`}>Voir </a>
               </button>
               <button className="button-lists" type="button">
-                <a href={`list/${list.id}/edit`}>Éditer </a>
+                <a className="red" href={`list/${list.id}/edit`}>Éditer </a>
               </button>
             </div>
           </div>
@@ -40,20 +51,68 @@ class Lists extends Component {
       return listsContent;
     };
 
-    return (
-      <div className="wrap-content">
-        <h1>Listes de course</h1>
-        <div className="lists-container">
-          {renderLists()}
+    const renderListCreate = () => (
+      <div className={`${showModalLists ? 'modal-opened-list' : 'modal-closed-list'}`}>
+        <div >
+          <button type="button" onClick={() => this.setState({ showModalLists: !showModalLists})} className="red-btn">
+            <i className="fas fa-times filter-icon"/> Fermer / Revenir
+          </button>
+        </div>
+
+        <div className="wrap-content">
+          <h2 className="title-create">Création d'une liste de course</h2>
+          <Form
+            onSubmit={() => {
+            }}
+            render={({handleSubmit, values}) => (
+              <form onSubmit={handleSubmit}>
+                <div className="field-input">
+                  <label>Titre de la liste</label>
+                  <Field name="title" component="input" placeholder="Titre de la liste"/>
+                </div>
+                <div className="field-input">
+                  <label>Auteur</label>
+                  <Field name="author" component="input" placeholder="Auteur"/>
+                </div>
+                <Field
+                  name="description"
+                  render={({ input, meta }) => (
+                    <div className="field-input">
+                      <label>Description</label>
+                      <textarea {...input} placeholder="description"/>
+                      {meta.touched && meta.error && <span>{meta.error}</span>}
+                    </div>
+                  )}
+                />
+                <button className="red-btn" type="submit" onClick={() => this.onSubmit(values)}>Créer la liste</button>
+              </form>
+            )}
+          />
         </div>
       </div>
+    );
+
+
+    return (
+      <>
+        <div className="wrap-content">
+          <div className="title-create">
+            <h2>Listes de course</h2>
+            <button className="red-btn" type="button" onClick={() => this.setState({showModalLists: !showModalLists})}>Créer une liste</button>
+          </div>
+          <div className="lists-container">
+            {renderLists()}
+          </div>
+        </div>
+        {renderListCreate()}
+      </>
     );
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getLists
+    getLists, createList
   }, dispatch);
 }
 

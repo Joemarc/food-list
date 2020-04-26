@@ -153,18 +153,17 @@ class ListView extends Component {
           <a href={`/categories?list_id=${match.params.id}`}><button type="button" className="add-products-btn">Ajouter des produits à la liste</button></a>
           <div className="title-display" onClick={() => this.hideFilter('toBuy')}>
             <h3 className="underlined-title"> Produits </h3>
-            <span>(glisser à droite une fois le produit trouvé)</span>
             <i className={`fas fa-chevron-${showToBuy ? 'up' : 'down'} filter-icon`}/>
           </div>
-          <div className={`content-${showToBuy ? 'appear' : 'disappear'}`}> {renderInProducts()}</div>
+
+          <div className={`content-${showToBuy ? 'appear' : 'disappear'}`}> <span>(glisser à droite une fois le produit trouvé)</span>{renderInProducts()}</div>
         </div>
         <div className="wrap-content product_found">
           <div className="title-display" onClick={() => this.hideFilter('basket')}>
             <h3 className="underlined-title">Dans le panier</h3>
-            <span>(glisser à droite )</span>
             <i className={`fas fa-chevron-${showBasket ? 'up' : 'down'} filter-icon`}/>
           </div>
-          <div className={`content-${showBasket ? 'appear' : 'disappear'}`}>{renderOutProducts()}</div>
+          <div className={`content-${showBasket ? 'appear' : 'disappear'}`}> <span>(glisser à droite pour remettre dans la liste de course )</span>{renderOutProducts()}</div>
         </div>
       </>
     );

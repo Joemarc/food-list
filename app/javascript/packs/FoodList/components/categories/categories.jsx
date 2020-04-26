@@ -56,11 +56,11 @@ class Categories extends Component {
   };
 
   onSubmit = () => {
-    const { createProduct: createProductAction, location } = this.props;
+    const { createProduct: createProductAction, location, history } = this.props;
     const { selectedProducts } = this.state;
 
     createProductAction({product: {product_ids: selectedProducts, list_id: queryString.parse(location.search).list_id}})
-      .then(() => this.getActions());
+      .then(() => history.push(`/list/${queryString.parse(location.search).list_id}`));
   };
 
 
@@ -129,15 +129,11 @@ class Categories extends Component {
       return notInListProductsList;
     };
 
-    const renderModal = () => {
-      if (isLoading) {
-        return "Chargement"
-      } else if (categories.length) {
-        return (
+    const renderModal = () => (
           <div className={`${showModal ? 'modal-opened' : 'modal-closed'}`}>
             <div >
               <button type="button" onClick={() => this.setState({ showModal: !showModal})} className="red-btn">
-                <i className="fas fa-times filter-icon"/>Fermer / Revenir
+                <i className="fas fa-times filter-icon"/> Fermer / Revenir
               </button>
             </div>
             <div className="wrap-content">
@@ -163,9 +159,7 @@ class Categories extends Component {
               />
             </div>
           </div>
-        )
-      }
-    };
+    );
 
     const renderModalCategory = () => (
       <div className={`${showModalCategory ? 'modal-opened-cat' : 'modal-closed-cat'}`}>

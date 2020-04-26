@@ -20,6 +20,22 @@
   }
 }
 
+.title-create {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #646463;
+}
+
+.red-btn {
+  background-color: #992E2E;
+  bottom: 0;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
 .lists-card--buttons {
   display: flex;
   justify-content: space-evenly;
@@ -28,4 +44,46 @@
 .button-lists {
   background-color: transparent;
   border: none;
+}
+
+.modal-opened-list {
+  background-color: white;
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  z-index: 2;
+  padding: 30px 15px;
+}
+
+.modal-closed-list {
+  display: none;
+}
+
+.field-input {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  input {
+    border: 1px solid #646463;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  textarea {
+    border: 1px solid #646463;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+}
+
+.red {
+  color: #992E2E;
+  &:hover {
+    color: #992E2E;
+    text-decoration: none;
+  }
 }

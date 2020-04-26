@@ -6,6 +6,7 @@ import {
   GET_LIST_EDIT_REQUEST, GET_LIST_EDIT_SUCCESS, GET_LIST_EDIT_FAILURE,
   UPDATE_LIST_REQUEST, UPDATE_LIST_SUCCESS, UPDATE_LIST_FAILURE,
   GET_LISTS_PRODUCTS_REQUEST, GET_LISTS_PRODUCTS_SUCCESS, GET_LISTS_PRODUCTS_FAILURE,
+  CREATE_LIST_SUCCESS, CREATE_LIST_REQUEST, CREATE_LIST_FAILURE
 } from './ListTypes';
 
 function getListsRequest() {
@@ -156,6 +157,36 @@ export function getListsProducts(listId) {
         return dispatch(getListsProductsSuccess(response.data));
       })
       .catch(error => Promise.reject(dispatch(getListsProductsFailure(error))));
+  };
+}
+
+function createListRequest() {
+  return { type: CREATE_LIST_REQUEST };
+}
+
+function createListSuccess(list) {
+  return {
+    type: CREATE_LIST_SUCCESS,
+    payload: list
+  };
+}
+
+function createListFailure(error) {
+  return {
+    type: CREATE_LIST_FAILURE,
+    payload: error
+  };
+}
+
+export function createList(params) {
+  return dispatch => {
+    dispatch(createListRequest());
+
+    return API.post('/lists', {...params})
+      .then(response => {
+        return dispatch(createListSuccess(response.data));
+      })
+      .catch(error => Promise.reject(dispatch(createListFailure(error))));
   };
 }
 
