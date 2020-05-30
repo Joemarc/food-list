@@ -1,7 +1,8 @@
 import {
   GET_IN_PRODUCTS_REQUEST, GET_IN_PRODUCTS_SUCCESS, GET_IN_PRODUCTS_FAILURE,
   GET_OUT_PRODUCTS_REQUEST, GET_OUT_PRODUCTS_SUCCESS, GET_OUT_PRODUCTS_FAILURE,
-  UPDATE_PRODUCT_OUT_SUCCESS, UPDATE_PRODUCT_IN_SUCCESS, UPDATE_PRODUCT_SUCCESS
+  UPDATE_PRODUCT_OUT_SUCCESS, UPDATE_PRODUCT_IN_SUCCESS, UPDATE_PRODUCT_SUCCESS,
+  DELETE_PRODUCT_SUCCESS
 } from '../../actions';
 
 const initialState = {
@@ -83,6 +84,21 @@ export default function(state = initialState, action) {
         outProducts,
         inProducts,
         error: action.payload
+      };
+      break;
+    }
+    case DELETE_PRODUCT_SUCCESS: {
+      const newArrayOut = [...state.outProducts].slice();
+      const positionOut = newArrayOut.indexOf(action.payload);
+      newArrayOut.splice(positionOut, 1);
+      const newArrayIn = [...state.inProducts].slice();
+      const positionIn = newArrayIn.indexOf(action.payload);
+      newArrayIn.splice(positionIn, 1);
+      reducer = {
+        ...state,
+        outProducts: newArrayOut,
+        inProducts: newArrayIn,
+        isLoading: false
       };
       break;
     }

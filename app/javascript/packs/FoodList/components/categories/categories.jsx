@@ -9,6 +9,7 @@ import * as queryString from 'query-string';
 import './categories.scss'
 import ProfileFormCheckbox from "../ProfileFormChecbox";
 import ProfileFormSelectSingle from "../ProfileFormSelectSingle";
+import displayToast from "../toastUtils";
 
 class Categories extends Component {
   constructor(props) {
@@ -60,7 +61,8 @@ class Categories extends Component {
     const { selectedProducts } = this.state;
 
     createProductAction({product: {product_ids: selectedProducts, list_id: queryString.parse(location.search).list_id}})
-      .then(() => history.push(`/list/${queryString.parse(location.search).list_id}`));
+      .then(() => history.push(`/list/${queryString.parse(location.search).list_id}`))
+      .then(() => displayToast('Vos produits a bien été ajouté à votre list', false));
   };
 
 
@@ -69,13 +71,15 @@ class Categories extends Component {
     const { selectedCategory } = this.state;
 
     createProductNameAction({product_name: {category_id: selectedCategory.id, name: values.name, description: values.description}})
-      .then(() => this.getActions()).then(() => this.setState({showModal: !this.state.showModal}));
+      .then(() => this.getActions()).then(() => this.setState({showModal: !this.showModal}))
+      .then(() => displayToast('Votre produit a bien crée', false));
   };
 
   addCategory = (values) => {
     const { createCategory: createCategoryAction } = this.props;
     createCategoryAction({name: values.category.name})
-      .then(() => this.getActions());
+      .then(() => this.getActions())
+      .then(() => displayToast('Votre catégorie a bien été créée', false));
   };
 
   handleCategorySelect = selectedCategory => {
@@ -145,11 +149,6 @@ class Categories extends Component {
                     <div className="field-input">
                       <label>Nom du produit</label>
                       <Field name="name" component="input" placeholder="Nom du produit"/>
-                    </div>
-
-                    <div className="field-input">
-                      <label>Description du produit</label>
-                      <Field name="description" component="input" placeholder="Description du produit"/>
                     </div>
 
                     <ProfileFormSelectSingle name="product_name.category" id="categories-add"

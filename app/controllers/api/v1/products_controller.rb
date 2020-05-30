@@ -3,11 +3,6 @@ class Api::V1::ProductsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :find_product, only: %i[show edit destroy update]
 
-  # def index
-  #   @products = Product.all
-  #   render json: @products
-  # end
-
   def create
     product_params[:product_ids].each do |i|
       pn = ProductName.find(i)
@@ -42,12 +37,8 @@ class Api::V1::ProductsController < ApplicationController
     render json: @out_products, each_serializer: ProductSerializer
   end
 
-  def create_products
-    product_params[:product_ids].each do |i|
-      pn = ProductName.find(i)
-      @product = Product.create!(name: pn.name, product_name_id: pn.id, category_id: pn.category_id)
-    end
-    render_ok
+  def refresh_list
+    Product.where(status: 1, list_id: params[:list_id]).update_all(status: "in")
   end
 
   private

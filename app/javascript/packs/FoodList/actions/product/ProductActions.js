@@ -7,7 +7,9 @@ import {
   UPDATE_PRODUCT_IN_REQUEST, UPDATE_PRODUCT_IN_SUCCESS, UPDATE_PRODUCT_IN_FAILURE,
   UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAILURE,
   CREATE_PRODUCT_REQUEST, CREATE_PRODUCT_SUCCESS, CREATE_PRODUCT_FAILURE,
-  CREATE_PRODUCT_NAME_REQUEST, CREATE_PRODUCT_NAME_SUCCESS, CREATE_PRODUCT_NAME_FAILURE
+  CREATE_PRODUCT_NAME_REQUEST, CREATE_PRODUCT_NAME_SUCCESS, CREATE_PRODUCT_NAME_FAILURE,
+  DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, DELETE_PRODUCT_FAILURE,
+  UPDATE_PRODUCTS_REQUEST, UPDATE_PRODUCTS_SUCCESS, UPDATE_PRODUCTS_FAILURE
 } from './ProductTypes';
 
 function getInProductsRequest() {
@@ -220,4 +222,66 @@ export function createProductName(params) {
       .catch(error => Promise.reject(dispatch(createProductNameFailure(error))));
   };
 }
+
+function deleteProductRequest() {
+  return {
+    type: DELETE_PRODUCT_REQUEST
+  };
+}
+
+function deleteProductSuccess(event) {
+  return {
+    type: DELETE_PRODUCT_SUCCESS,
+    payload: event
+  };
+}
+
+function deleteProductFailure(error) {
+  return {
+    type: DELETE_PRODUCT_FAILURE,
+    payload: { error }
+  };
+}
+
+export function deleteProduct(product) {
+  return dispatch => {
+    dispatch(deleteProductRequest());
+
+    return API.delete(`/products/${product.id}`)
+      .then(() => dispatch(deleteProductSuccess(product)),
+        error => Promise.reject(dispatch(deleteProductFailure(error))));
+  };
+}
+
+
+function updateProductsRequest() {
+  return { type: UPDATE_PRODUCTS_REQUEST };
+}
+
+function updateProductsSuccess(product) {
+  return {
+    type: UPDATE_PRODUCTS_SUCCESS,
+    payload: product
+  };
+}
+
+function updateProductsFailure(error) {
+  return {
+    type: UPDATE_PRODUCTS_FAILURE,
+    payload: error
+  };
+}
+
+export function refreshList(listId) {
+  return dispatch => {
+    dispatch(updateProductsRequest());
+
+    return API.put(`/products/refresh_list?list_id=${listId}`)
+      .then(response => {
+        return dispatch(updateProductsSuccess(response.data));
+      })
+      .catch(error => Promise.reject(dispatch(updateProductsFailure(error))));
+  };
+}
+
 

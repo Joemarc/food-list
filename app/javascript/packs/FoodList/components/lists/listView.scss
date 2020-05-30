@@ -68,7 +68,7 @@
 
 .quantity-container {
   display: block;
-  width: 17%;
+  width: 25%;
   & > * {
     width: 100%;
   }
@@ -122,11 +122,15 @@
 .product-description {
   font-size: 14px;
   cursor: pointer;
-  width: 50%;
+  width: 40%;
+  input {
+    width: 100%;
+    word-break: break-word;
+  }
 }
 
 .left-infos {
-  width: 30%;
+  width: 28%;
 }
 
 .small-red-btn {

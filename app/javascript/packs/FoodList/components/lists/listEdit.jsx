@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import { Form, Field } from 'react-final-form';
 
 import './listEdit.scss'
+import displayToast from "../toastUtils";
 
 class ListEdit extends Component {
   componentDidMount() {
@@ -15,7 +16,7 @@ class ListEdit extends Component {
 
   update = values => {
     const { updateList: updateListAction, match } = this.props;
-    updateListAction(match.params.id, values);
+    updateListAction(match.params.id, values).then(() => displayToast('La liste a bien été modifiée', false));
   };
 
   render() {

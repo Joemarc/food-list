@@ -28,6 +28,7 @@ class Api::V1::ListsController < ApplicationController
 
   def destroy
     @list.destroy
+    render_ok
   end
 
   def products

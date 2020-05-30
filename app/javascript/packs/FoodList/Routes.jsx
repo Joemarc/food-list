@@ -7,6 +7,7 @@ import Lists from "./components/lists/lists";
 import listView from "./components/lists/listView"
 import listEdit from "./components/lists/listEdit"
 import categories from "./components/categories/categories";
+import ToastMessage from "./ToastMessage/ToastMessage";
 
 const Routes = () => {
   return (
@@ -18,6 +19,7 @@ const Routes = () => {
         <Route exact path="/categories" component={categories} />
         <Route path="/products/new" component={categories} />
       </Switch>
+      <ToastMessage />
     </Router>
   );
 };

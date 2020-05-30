@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="573b4714-c0a8-4e44-9108-79fcad99de57" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/productCard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/toastUtils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/lists_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/lists_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/products_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/Routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/Routes.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/product/ProductActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/product/ProductActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/product/ProductTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/product/ProductTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/categories/categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/categories/categories.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listEdit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listEdit.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/lists.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/lists.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/reducers/products/productReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/reducers/products/productReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/hello_react.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/hello_react.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +24,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="828" />
   </component>
   <component name="ProjectId" id="1cd0JRwQzGX2Mc7U6oFPo28GaB5" />
   <component name="ProjectViewState">
@@ -43,11 +41,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/javascript/packs/FoodList" />
       <recent name="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists" />
       <recent name="$PROJECT_DIR$/app/javascript/packs/FoodList/components" />
       <recent name="$PROJECT_DIR$/app/controllers/api" />
       <recent name="$PROJECT_DIR$/app/javascript/packs/FoodList/actions" />
-      <recent name="$PROJECT_DIR$/app/controllers/V1" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: food-list">
@@ -165,7 +163,7 @@
       <workItem from="1590572485795" duration="131000" />
       <workItem from="1590672885104" duration="6000" />
       <workItem from="1590672927663" duration="108000" />
-      <workItem from="1590843092438" duration="9045000" />
+      <workItem from="1590843092438" duration="13120000" />
     </task>
     <servers />
   </component>
@@ -173,13 +171,13 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="192" width="604" height="490" key="find.popup" timestamp="1590852255736">
+    <state x="421" y="192" width="604" height="490" key="find.popup" timestamp="1590859176929">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="421" y="192" width="604" height="490" key="find.popup/0.23.1440.828@0.23.1440.828" timestamp="1590852255736" />
-    <state x="385" y="175" width="670" height="676" key="search.everywhere.popup" timestamp="1590852304227">
+    <state x="421" y="192" width="604" height="490" key="find.popup/0.23.1440.828@0.23.1440.828" timestamp="1590859176929" />
+    <state x="385" y="175" width="670" height="676" key="search.everywhere.popup" timestamp="1590859179878">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="385" y="175" width="670" height="676" key="search.everywhere.popup/0.23.1440.828@0.23.1440.828" timestamp="1590852304227" />
+    <state x="385" y="175" width="670" height="676" key="search.everywhere.popup/0.23.1440.828@0.23.1440.828" timestamp="1590859179878" />
   </component>
 </project>

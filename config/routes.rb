@@ -15,7 +15,7 @@ Rails.application.routes.draw do
           get :in_products
           get :out_products
           get :products_not_in_list
-          post :create_products
+          put :refresh_list
         end
       end
       resources :categories

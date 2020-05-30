@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {getList, updateProductIn, updateProductOut, getInProducts, getOutProducts} from "../../actions";
+import {getList, updateProductIn, updateProductOut, getInProducts, getOutProducts, deleteProduct, refreshList} from "../../actions";
 import {bindActionCreators} from "redux";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
-import QuantityInput from "../QuantityInput";
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-import { Form, Field } from 'react-final-form'
+import displayToast from "../toastUtils";
 
 import './listView.scss'
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
@@ -16,8 +15,7 @@ class ListView extends Component {
     super(props);
 
     this.state = {
-      showToBuy: true, showBasket: true,
-      canEdit: false
+      showToBuy: true, showBasket: true
     };
   }
 
@@ -55,14 +53,24 @@ class ListView extends Component {
   updateStatus = (product, status) => {
     const {updateProductIn: updateProductInAction, updateProductOut: updateProductOutAction} = this.props;
     product.status === "in" ?
-      updateProductOutAction(product, {product: {status: status}})
+      updateProductOutAction(product, {product: {status: status}}).then(() => displayToast('Produit mis dans le panier', false))
       :
-      updateProductInAction(product, {product: {status: status}})
+      updateProductInAction(product, {product: {status: status}}).then(() => displayToast('Produit remis dans la liste de course', false))
   };
+
+  deleteProduct = product => {
+    const { deleteProduct: deleteProductAction } = this.props;
+    deleteProductAction(product).then(() => displayToast('Produit supprimé de la liste', false));
+  }
+
+  refreshList = () => {
+    const { refreshList : refreshListAction, match } = this.props;
+    refreshListAction(match.params.id).then(() => displayToast('Tous les Produit ont été remis dans la liste de course', false));
+  }
 
   render() {
     const { list, isLoading, match, inProducts, outProducts, isLoadingProducts } = this.props;
-    const { showToBuy, showBasket, canEdit } = this.state;
+    const { showToBuy, showBasket } = this.state;
 
     const renderList = () => {
       let listContent;
@@ -154,7 +162,7 @@ class ListView extends Component {
         <div className="wrap-content product_found">
           <div className="title-display" onClick={() => this.hideFilter('basket')}>
             <h3 className="underlined-title">Dans le panier</h3>
-            { outProducts ? <button type="button" className="red-btn"> Tout remettre dans la liste de courses </button> : null}
+            { outProducts ? <button type="button" className="red-btn" onClick={() => this.refreshList()}> Tout remettre dans la liste de courses </button> : null}
             <i className={`fas fa-chevron-${showBasket ? 'up' : 'down'} filter-icon`}/>
           </div>
           <div className={`content-${showBasket ? 'appear' : 'disappear'}`}> <span>(glisser à droite pour remettre dans la liste de course )</span>{renderOutProducts()}</div>
@@ -166,7 +174,7 @@ class ListView extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getList, updateProductIn, updateProductOut, getInProducts, getOutProducts
+    getList, updateProductIn, updateProductOut, getInProducts, getOutProducts, deleteProduct, refreshList
   }, dispatch);
 }
 

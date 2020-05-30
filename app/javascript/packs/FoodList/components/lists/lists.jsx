@@ -6,6 +6,7 @@ import {getLists, createList} from '../../actions';
 
 import './lists.scss'
 import {Field, Form} from "react-final-form";
+import displayToast from "../toastUtils";
 
 class Lists extends Component {
   state = {
@@ -24,6 +25,7 @@ class Lists extends Component {
     createListAction({list: {title: values.title, author: values.author, description: values.description}})
       .then(() => getListsAction()
         .then(this.setState({showModalLists: !showModalLists})))
+      .then(() => displayToast('Votre liste a bien été créée', false))
   };
 
   render() {
