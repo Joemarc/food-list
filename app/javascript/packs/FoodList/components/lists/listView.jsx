@@ -1,20 +1,23 @@
 import React, {Component} from 'react';
-import {getList, updateProduct, getInProducts, getOutProducts} from "../../actions";
+import {getList, updateProductIn, updateProductOut, getInProducts, getOutProducts} from "../../actions";
 import {bindActionCreators} from "redux";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
 import QuantityInput from "../QuantityInput";
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import { Form, Field } from 'react-final-form'
 
 import './listView.scss'
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+import ProductCard from "./productCard";
 
 class ListView extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showToBuy: true, showBasket: true
+      showToBuy: true, showBasket: true,
+      canEdit: false
     };
   }
 
@@ -50,16 +53,16 @@ class ListView extends Component {
   };
 
   updateStatus = (product, status) => {
-    const {updateProduct: updateProductAction,} = this.props;
-
-    updateProductAction(product, {product: {status: status}}).then(() =>
-      this.getPage()
-    )
+    const {updateProductIn: updateProductInAction, updateProductOut: updateProductOutAction} = this.props;
+    product.status === "in" ?
+      updateProductOutAction(product, {product: {status: status}})
+      :
+      updateProductInAction(product, {product: {status: status}})
   };
 
   render() {
     const { list, isLoading, match, inProducts, outProducts, isLoadingProducts } = this.props;
-    const { showToBuy, showBasket } = this.state;
+    const { showToBuy, showBasket, canEdit } = this.state;
 
     const renderList = () => {
       let listContent;
@@ -91,20 +94,15 @@ class ListView extends Component {
               <SwipeableList key={product.id}>
                 <SwipeableListItem
                   swipeRight={{
-                    content: <div>Produit Trouvé</div>,
+                    content: <div className="swipe-right-class"><i className="fas fa-check filter-icon"/> Produit trouvé</div>,
                     action: () => this.updateStatus(product, 1)
                   }}
+                  swipeLeft={{
+                    content: <div className="swipe-left-class">Supprimer le produit de la liste <i className="fas fa-trash filter-icon"/></div>,
+                    action: () => this.deleteProduct(product)
+                  }}
                 >
-                  <div className="product-card">
-                    <div className="product-elements">
-                      <div className="left-infos">
-                        <h4 className="product-name">{product.name}</h4>
-                        <p className="green-category">{product.category}</p>
-                      </div>
-                      <p className="product-description">{product.description}</p>
-                      <QuantityInput name="product.name" product={product} isLoading={isLoading}/>
-                    </div>
-                  </div>
+                  <ProductCard product={product}/>
                 </SwipeableListItem>
               </SwipeableList>
             )}
@@ -124,20 +122,15 @@ class ListView extends Component {
               <SwipeableList key={product.id}>
                 <SwipeableListItem
                   swipeRight={{
-                    content: <div>Produit Non-trouvé</div>,
+                    content: <div className="swipe-right-class"><i className="fas fa-check filter-icon"/> Remettre dans la liste à trouver</div>,
                     action: () => this.updateStatus(product, 0)
                   }}
+                  swipeLeft={{
+                    content: <div className="swipe-left-class">Supprimer le produit de la liste <i className="fas fa-trash filter-icon"/></div>,
+                    action: () => this.deleteProduct(product)
+                  }}
                 >
-                  <div className="product-card">
-                    <div className="product-elements">
-                      <div className="left-infos">
-                        <h4 className="product-name">{product.name}</h4>
-                        <p className="green-category">{product.category}</p>
-                      </div>
-                      <p className="product-description">{product.description}</p>
-                      <QuantityInput name="product.name" product={product} isLoading={isLoading}/>
-                    </div>
-                  </div>
+                  <ProductCard product={product}/>
                 </SwipeableListItem>
               </SwipeableList>
             )}
@@ -161,6 +154,7 @@ class ListView extends Component {
         <div className="wrap-content product_found">
           <div className="title-display" onClick={() => this.hideFilter('basket')}>
             <h3 className="underlined-title">Dans le panier</h3>
+            { outProducts ? <button type="button" className="red-btn"> Tout remettre dans la liste de courses </button> : null}
             <i className={`fas fa-chevron-${showBasket ? 'up' : 'down'} filter-icon`}/>
           </div>
           <div className={`content-${showBasket ? 'appear' : 'disappear'}`}> <span>(glisser à droite pour remettre dans la liste de course )</span>{renderOutProducts()}</div>
@@ -172,7 +166,7 @@ class ListView extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getList, updateProduct, getInProducts, getOutProducts
+    getList, updateProductIn, updateProductOut, getInProducts, getOutProducts
   }, dispatch);
 }
 

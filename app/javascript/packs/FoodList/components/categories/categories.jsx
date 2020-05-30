@@ -68,13 +68,12 @@ class Categories extends Component {
     const { createProductName: createProductNameAction } = this.props;
     const { selectedCategory } = this.state;
 
-    createProductNameAction({product_name: {category_id: selectedCategory.id, name: values.name}})
-      .then(() => this.getActions());
+    createProductNameAction({product_name: {category_id: selectedCategory.id, name: values.name, description: values.description}})
+      .then(() => this.getActions()).then(() => this.setState({showModal: !this.state.showModal}));
   };
 
   addCategory = (values) => {
     const { createCategory: createCategoryAction } = this.props;
-    console.log(values);
     createCategoryAction({name: values.category.name})
       .then(() => this.getActions());
   };
@@ -146,6 +145,11 @@ class Categories extends Component {
                     <div className="field-input">
                       <label>Nom du produit</label>
                       <Field name="name" component="input" placeholder="Nom du produit"/>
+                    </div>
+
+                    <div className="field-input">
+                      <label>Description du produit</label>
+                      <Field name="description" component="input" placeholder="Description du produit"/>
                     </div>
 
                     <ProfileFormSelectSingle name="product_name.category" id="categories-add"

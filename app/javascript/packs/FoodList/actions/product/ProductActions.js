@@ -3,6 +3,8 @@ import API from '../../config/api';
 import {
   GET_IN_PRODUCTS_REQUEST, GET_IN_PRODUCTS_SUCCESS, GET_IN_PRODUCTS_FAILURE,
   GET_OUT_PRODUCTS_REQUEST, GET_OUT_PRODUCTS_SUCCESS, GET_OUT_PRODUCTS_FAILURE,
+  UPDATE_PRODUCT_OUT_REQUEST, UPDATE_PRODUCT_OUT_SUCCESS, UPDATE_PRODUCT_OUT_FAILURE,
+  UPDATE_PRODUCT_IN_REQUEST, UPDATE_PRODUCT_IN_SUCCESS, UPDATE_PRODUCT_IN_FAILURE,
   UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAILURE,
   CREATE_PRODUCT_REQUEST, CREATE_PRODUCT_SUCCESS, CREATE_PRODUCT_FAILURE,
   CREATE_PRODUCT_NAME_REQUEST, CREATE_PRODUCT_NAME_SUCCESS, CREATE_PRODUCT_NAME_FAILURE
@@ -68,7 +70,6 @@ export function getOutProducts(listId) {
   };
 }
 
-
 function updateProductRequest() {
   return { type: UPDATE_PRODUCT_REQUEST };
 }
@@ -96,6 +97,67 @@ export function updateProduct(product, params) {
         return dispatch(updateProductSuccess(response.data));
       })
       .catch(error => Promise.reject(dispatch(updateProductFailure(error))));
+  };
+}
+
+
+function updateProductOutRequest() {
+  return { type: UPDATE_PRODUCT_OUT_REQUEST };
+}
+
+function updateProductOutSuccess(product) {
+  return {
+    type: UPDATE_PRODUCT_OUT_SUCCESS,
+    payload: product
+  };
+}
+
+function updateProductOutFailure(error) {
+  return {
+    type: UPDATE_PRODUCT_OUT_FAILURE,
+    payload: error
+  };
+}
+
+export function updateProductOut(product, params) {
+  return dispatch => {
+    dispatch(updateProductOutRequest());
+
+    return API.put(`products/${product.id}`, {...params})
+      .then(response => {
+        return dispatch(updateProductOutSuccess(response.data));
+      })
+      .catch(error => Promise.reject(dispatch(updateProductOutFailure(error))));
+  };
+}
+
+function updateProductInRequest() {
+  return { type: UPDATE_PRODUCT_IN_REQUEST };
+}
+
+function updateProductInSuccess(product) {
+  return {
+    type: UPDATE_PRODUCT_IN_SUCCESS,
+    payload: product
+  };
+}
+
+function updateProductInFailure(error) {
+  return {
+    type: UPDATE_PRODUCT_IN_FAILURE,
+    payload: error
+  };
+}
+
+export function updateProductIn(product, params) {
+  return dispatch => {
+    dispatch(updateProductInRequest());
+
+    return API.put(`products/${product.id}`, {...params})
+      .then(response => {
+        return dispatch(updateProductInSuccess(response.data));
+      })
+      .catch(error => Promise.reject(dispatch(updateProductInFailure(error))));
   };
 }
 
