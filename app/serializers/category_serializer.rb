@@ -5,7 +5,8 @@ class CategorySerializer < ActiveModel::Serializer
     arr = []
     ProductName.find_each.map { |pn| arr << pn.id }
     arr2 = []
-    Product.find_each.map { |p| arr2 << p.product_name_id }
+    list = List.find(@instance_options[:listId].to_i)
+    list.products.find_each.map { |p| arr2 << p.product_name_id }
     clean_arr = (arr - arr2) | (arr2 - arr)
     product_names = []
     clean_arr.each do |c|

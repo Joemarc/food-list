@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="573b4714-c0a8-4e44-9108-79fcad99de57" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/toastUtils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/lists_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/lists_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/categories_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/Routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/Routes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/product/ProductActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/product/ProductActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/product/ProductTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/product/ProductTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/category/CategoryActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/category/CategoryActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/categories/categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/categories/categories.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listEdit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listEdit.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/listView.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/lists.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/lists/lists.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/reducers/products/productReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/reducers/products/productReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/config/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers/category_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/serializers/category_serializer.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +156,7 @@
       <workItem from="1590572485795" duration="131000" />
       <workItem from="1590672885104" duration="6000" />
       <workItem from="1590672927663" duration="108000" />
-      <workItem from="1590843092438" duration="13120000" />
+      <workItem from="1590843092438" duration="14896000" />
     </task>
     <servers />
   </component>
@@ -171,13 +164,13 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="192" width="604" height="490" key="find.popup" timestamp="1590859176929">
+    <state x="421" y="192" width="604" height="490" key="find.popup" timestamp="1590860863809">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="421" y="192" width="604" height="490" key="find.popup/0.23.1440.828@0.23.1440.828" timestamp="1590859176929" />
-    <state x="385" y="175" width="670" height="676" key="search.everywhere.popup" timestamp="1590859179878">
+    <state x="421" y="192" width="604" height="490" key="find.popup/0.23.1440.828@0.23.1440.828" timestamp="1590860863809" />
+    <state x="385" y="175" width="670" height="676" key="search.everywhere.popup" timestamp="1590860810542">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="385" y="175" width="670" height="676" key="search.everywhere.popup/0.23.1440.828@0.23.1440.828" timestamp="1590859179878" />
+    <state x="385" y="175" width="670" height="676" key="search.everywhere.popup/0.23.1440.828@0.23.1440.828" timestamp="1590860810542" />
   </component>
 </project>

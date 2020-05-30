@@ -5,7 +5,7 @@ class Api::V1::CategoriesController < ApplicationController
 
   def index
     @categories = Category.all.order(name: :asc)
-    render json: @categories, each_serializer: CategorySerializer
+    render json: @categories, each_serializer: CategorySerializer, listId: params[:list_id]
   end
 
   def create

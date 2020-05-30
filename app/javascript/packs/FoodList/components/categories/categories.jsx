@@ -33,7 +33,7 @@ class Categories extends Component {
       getListsProducts: getListsProductsAction,
       location
     } = this.props;
-    getCategoriesAction();
+    getCategoriesAction(queryString.parse(location.search).list_id);
     getListsProductsAction(queryString.parse(location.search).list_id);
   };
 

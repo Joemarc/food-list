@@ -24,11 +24,11 @@ function getCategoriesFailure(error) {
   };
 }
 
-export function getCategories() {
+export function getCategories(listId) {
   return dispatch => {
     dispatch(getCategoriesRequest());
 
-    return API.get('/categories')
+    return API.get(`/categories?list_id=${listId}`)
       .then(response => {
         return dispatch(getCategoriesSuccess(response.data));
       })

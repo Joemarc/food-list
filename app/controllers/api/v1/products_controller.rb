@@ -50,8 +50,4 @@ class Api::V1::ProductsController < ApplicationController
   def find_product
     @product = Product.find(params[:id])
   end
-
-  def url_params
-    params.permit(:list_id)
-  end
 end
