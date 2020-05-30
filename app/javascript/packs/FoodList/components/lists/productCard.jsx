@@ -43,12 +43,12 @@ class ProductCard extends Component {
               render={({ handleSubmit, values }) => (
                 <form onSubmit={handleSubmit} className="product-description">
                   <Field name="product.description" component="input" placeholder="Description du produit" />
-                  <button className="small-red-btn" onClick={() => this.onSubmit(values)} > Valider </button>
+                  <button className="small-red-btn" onClick={() => this.onSubmit(values)} >Valider</button>
                 </form>
               )}
             />
             :
-            <p onClick={this.showEdit} className="product-description">{product.description}<i className="fas fa-edit"/></p>
+            <p onClick={this.showEdit} className="product-description">{product.description ? product.description : "Pas de description"} <i className="fas fa-edit"/></p>
           }
           <QuantityInput name="product.name" product={product} isLoading={isLoading}/>
         </div>
