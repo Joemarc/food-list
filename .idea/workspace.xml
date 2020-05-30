@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="573b4714-c0a8-4e44-9108-79fcad99de57" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/categories_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/category/CategoryActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/actions/category/CategoryActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/categories/categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/components/categories/categories.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/FoodList/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/FoodList/config/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/serializers/category_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/serializers/category_serializer.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +151,7 @@
       <workItem from="1590572485795" duration="131000" />
       <workItem from="1590672885104" duration="6000" />
       <workItem from="1590672927663" duration="108000" />
-      <workItem from="1590843092438" duration="14896000" />
+      <workItem from="1590843092438" duration="15062000" />
     </task>
     <servers />
   </component>
